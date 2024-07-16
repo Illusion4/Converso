@@ -1,0 +1,6 @@
+@SnapTalk.WebAPI_HostAddress = http://localhost:5148
+
+GET {{SnapTalk.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
