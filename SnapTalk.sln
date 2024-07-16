@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapTalk.WebAPI", "SnapTalk.WebAPI\SnapTalk.WebAPI.csproj", "{EC1AA5F7-2435-42F5-A28A-1EAF2F24F358}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapTalk.DAL", "SnapTalk.DAL\SnapTalk.DAL.csproj", "{E9877B66-340F-44B4-B01C-480EB59AD37F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapTalk.BLL", "SnapTalk.BLL\SnapTalk.BLL.csproj", "{ECB42E28-C20D-4880-BCD3-B6C5C5337695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapTalk.Common", "SnapTalk.Common\SnapTalk.Common.csproj", "{DF227FD1-1271-4ABA-AB75-8E7B8B558733}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{EC1AA5F7-2435-42F5-A28A-1EAF2F24F358}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC1AA5F7-2435-42F5-A28A-1EAF2F24F358}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC1AA5F7-2435-42F5-A28A-1EAF2F24F358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9877B66-340F-44B4-B01C-480EB59AD37F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9877B66-340F-44B4-B01C-480EB59AD37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9877B66-340F-44B4-B01C-480EB59AD37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9877B66-340F-44B4-B01C-480EB59AD37F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECB42E28-C20D-4880-BCD3-B6C5C5337695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECB42E28-C20D-4880-BCD3-B6C5C5337695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECB42E28-C20D-4880-BCD3-B6C5C5337695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECB42E28-C20D-4880-BCD3-B6C5C5337695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF227FD1-1271-4ABA-AB75-8E7B8B558733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF227FD1-1271-4ABA-AB75-8E7B8B558733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF227FD1-1271-4ABA-AB75-8E7B8B558733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF227FD1-1271-4ABA-AB75-8E7B8B558733}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
