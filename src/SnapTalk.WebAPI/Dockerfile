@@ -1,11 +1,13 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 5000
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["SnapTalk.WebAPI/SnapTalk.WebAPI.csproj", "SnapTalk.WebAPI/"]
+COPY ["SnapTalk.DAL/SnapTalk.DAL.csproj", "SnapTalk.DAL/"]
+COPY ["SnapTalk.Common/SnapTalk.Common.csproj", "SnapTalk.Common/"]
+COPY ["SnapTalk.BLL/SnapTalk.BLL.csproj", "SnapTalk.BLL/"]
 RUN dotnet restore "SnapTalk.WebAPI/SnapTalk.WebAPI.csproj"
 COPY . .
 WORKDIR "/src/SnapTalk.WebAPI"

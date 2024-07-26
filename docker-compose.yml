@@ -1,0 +1,52 @@
+version: "3.7"
+services:
+  api:
+    build:
+        context: src
+        dockerfile: SnapTalk.WebAPI/Dockerfile
+    ports:
+      - "5000:5000"
+    restart: on-failure
+    container_name: "snap-talk-api"
+    depends_on:
+      - sql_server
+    environment:
+        ASPNETCORE_ENVIRONMENT: "Development"
+        ConnectionStrings__DefaultConnection: "Server=sql_server;Database=SnapTalk;User=sa;Password=Password123!;TrustServerCertificate=True"
+    networks:
+      - back
+  
+  frontend:
+    build:
+        context: src/SnapTalk.Client
+        dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+    depends_on:
+      - api
+      - sql_server
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+    networks:
+      - back
+      - front
+  
+  sql_server:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: sql_server
+    ports:
+      - "1433:1433"
+    environment:
+        SA_PASSWORD: "Password123!"
+        ACCEPT_EULA: "Y"
+    networks:
+      - back
+        
+networks:
+  back:
+    driver: bridge
+  front:
+    driver: bridge
+    

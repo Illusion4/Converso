@@ -9,6 +9,8 @@ builder.Configuration
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
     .AddEnvironmentVariables()
     .Build();
+
+builder.WebHost.UseUrls("http://*:5000");
  
 
 // Add services to the container.

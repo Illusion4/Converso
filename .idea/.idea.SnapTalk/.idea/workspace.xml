@@ -4,58 +4,21 @@
     <projectFile profileName="IIS Express">SnapTalk.WebAPI/SnapTalk.WebAPI.csproj</projectFile>
     <projectFile profileName="http">SnapTalk.WebAPI/SnapTalk.WebAPI.csproj</projectFile>
     <projectFile profileName="https">SnapTalk.WebAPI/SnapTalk.WebAPI.csproj</projectFile>
+    <projectFile profileName="Snap Talk API">src/SnapTalk.WebAPI/SnapTalk.WebAPI.csproj</projectFile>
+    <projectFile profileName="SnapTalkAPI">src/SnapTalk.WebAPI/SnapTalk.WebAPI.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ccf79da-f35e-4c0d-b717-fbe4359f21a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/SnapTalk.BLL/SnapTalk.BLL.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/app/app.component.sass" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/app/app.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/app/app.routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/assets/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/src/styles.sass" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Client/tsconfig.spec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.Common/SnapTalk.Common.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Context/EntityConfigurations/ChatEntityConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Context/EntityConfigurations/UserChatEntityConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Context/EntityConfigurations/UserEntityConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Context/SnapTalkContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Entities/ChatEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Entities/Enums/UserChatRole.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Entities/MessageEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Entities/UserChatEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Entities/UserEntity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Migrations/20240722145513_InitializeModels.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Migrations/20240722145513_InitializeModels.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/Migrations/SnapTalkContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.DAL/SnapTalk.DAL.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.WebAPI/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.WebAPI/Extensions/ApplicationBuilderExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.WebAPI/Extensions/ServiceCollectionExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.WebAPI/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.WebAPI/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.WebAPI/SnapTalk.WebAPI.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.WebAPI/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnapTalk.sln" beforeDir="false" afterPath="$PROJECT_DIR$/SnapTalk.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Properties/launchSettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +68,10 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;yaml&quot;,
+      &quot;DockerIgnore&quot;
+    ],
     &quot;rider.external.source.directories&quot;: [
       &quot;C:\\Users\\Home\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
       &quot;C:\\Users\\Home\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
@@ -112,7 +79,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.SnapTalk.WebAPI: https (1)">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration name="SnapTalk.WebAPI" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/SnapTalk.WebAPI/bin/Debug/net8.0/SnapTalk.WebAPI.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -135,6 +102,36 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SnapTalk.WebAPI/SnapTalk.WebAPI.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
       <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="SnapTalk.WebAPI: Snap Talk API" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/SnapTalk.WebAPI/SnapTalk.WebAPI.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="Snap Talk API" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="SnapTalk.WebAPI: SnapTalkAPI" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/SnapTalk.WebAPI/SnapTalk.WebAPI.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="SnapTalkAPI" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -196,7 +193,7 @@
         <settings>
           <option name="imageTag" value="snaptalk.webapi" />
           <option name="containerName" value="snaptalk.webapi" />
-          <option name="contextFolderPath" value="C:\Users\Home\RiderProjects\SnapTalk" />
+          <option name="contextFolderPath" value="." />
           <option name="portBindings">
             <list>
               <DockerPortBindingImpl>
@@ -211,6 +208,18 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envFilePath" value="" />
+          <option name="removeOrphansOnComposeDown" value="false" />
+          <option name="sourceFilePath" value="docker-compose.yml" />
+          <option name="upDetach" value="false" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
       <deployment type="dockerfile">
         <settings />
@@ -218,16 +227,51 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envFilePath" value="" />
+          <option name="removeOrphansOnComposeDown" value="false" />
+          <option name="sourceFilePath" value="docker-compose.yml" />
+          <option name="upDetach" value="false" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.frontend: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envFilePath" value="" />
+          <option name="removeOrphansOnComposeDown" value="false" />
+          <option name="services">
+            <list>
+              <option value="frontend" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+          <option name="upDetach" value="false" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue=".NET Launch Settings Profile.SnapTalk.WebAPI: Snap Talk API" />
+      <item itemvalue=".NET Launch Settings Profile.SnapTalk.WebAPI: SnapTalkAPI" />
       <item itemvalue=".NET Launch Settings Profile.SnapTalk.WebAPI: https" />
       <item itemvalue=".NET Launch Settings Profile.SnapTalk.WebAPI: IIS Express" />
       <item itemvalue=".NET Launch Settings Profile.SnapTalk.WebAPI: http" />
       <item itemvalue=".NET Launch Settings Profile.SnapTalk.WebAPI: https (1)" />
       <item itemvalue=".NET Project.SnapTalk.WebAPI" />
       <item itemvalue="Docker.SnapTalk.WebAPI/Dockerfile" />
+      <item itemvalue="Docker.docker-compose.yml.frontend: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.frontend: Compose Deployment" />
         <item itemvalue=".NET Launch Settings Profile.SnapTalk.WebAPI: https (1)" />
         <item itemvalue=".NET Launch Settings Profile.SnapTalk.WebAPI: http" />
       </list>
@@ -249,6 +293,11 @@
       <workItem from="1721648922492" duration="10837000" />
       <workItem from="1721835203731" duration="3139000" />
       <workItem from="1721898686974" duration="1276000" />
+      <workItem from="1721900056124" duration="4066000" />
+      <workItem from="1721907757517" duration="790000" />
+      <workItem from="1721908587865" duration="5610000" />
+      <workItem from="1721927544522" duration="4015000" />
+      <workItem from="1722001385390" duration="1195000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -290,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721835641176</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update project structure">
+      <option name="closed" value="true" />
+      <created>1721900265813</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721900265813</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +383,7 @@
     <MESSAGE value="Setup basic projects" />
     <MESSAGE value="Setup project" />
     <MESSAGE value="Setup database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setup database" />
+    <MESSAGE value="Update project structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update project structure" />
   </component>
 </project>
