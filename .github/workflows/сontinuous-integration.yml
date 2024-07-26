@@ -17,9 +17,9 @@ jobs:
         with:
           dotnet-version: 8.0.x
       - name: Restore .NET dependencies
-        run: dotnet restore ./src/SnapTalk.sln
+        run: dotnet restore SnapTalk.sln
       - name: Build .NET
-        run: dotnet build ./src/SnapTalk.sln --no-restore
+        run: dotnet build SnapTalk.sln --no-restore
 
   build_frontend:
     runs-on: ubuntu-latest
