@@ -44,5 +44,5 @@ jobs:
         with:
           tags: vladyslavlintur/snaptalk-frontend:latest
           context: ./src/SnapTalk.Client
-          file: Dockerfile
+          file: ./src/SnapTalk.Client/Dockerfile
           push: true
