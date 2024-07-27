@@ -11,8 +11,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ccf79da-f35e-4c0d-b717-fbe4359f21a6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/сontinuous-integration.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/сontinuous-integration.yml" afterDir="false" />
+    <list default="true" id="8ccf79da-f35e-4c0d-b717-fbe4359f21a6" name="Changes" comment="Update nginx">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SnapTalk/Docker/docker-compose.generated.override.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnapTalk/Docker/docker-compose.generated.override.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,6 +295,7 @@
       <workItem from="1721908587865" duration="5610000" />
       <workItem from="1721927544522" duration="4015000" />
       <workItem from="1722001385390" duration="5710000" />
+      <workItem from="1722067817195" duration="9567000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -349,7 +353,47 @@
       <option name="project" value="LOCAL" />
       <updated>1722014370232</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add basic cd">
+      <option name="closed" value="true" />
+      <created>1722069332514</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1722069332514</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fix Docker file path">
+      <option name="closed" value="true" />
+      <created>1722069484133</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722069484133</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update nginx conf">
+      <option name="closed" value="true" />
+      <created>1722072644169</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722072644169</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update">
+      <option name="closed" value="true" />
+      <created>1722073163100</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1722073163100</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update nginx">
+      <option name="closed" value="true" />
+      <created>1722088960087</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722088960087</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +431,11 @@
     <MESSAGE value="Setup database" />
     <MESSAGE value="Update project structure" />
     <MESSAGE value="Configure docker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configure docker" />
+    <MESSAGE value="Add basic cd" />
+    <MESSAGE value="Fix Docker file path" />
+    <MESSAGE value="Update nginx conf" />
+    <MESSAGE value="Update" />
+    <MESSAGE value="Update nginx" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update nginx" />
   </component>
 </project>

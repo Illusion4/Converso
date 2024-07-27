@@ -5,9 +5,9 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM nginx:1.21.1-alpine
+FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN rm -rf /usr/share/nginx/html/*
-COPY --from=builder /client/dist/* /usr/share/nginx/html
+COPY --from=builder /client/dist/snap-talk.client/browser /usr/share/nginx/html
 EXPOSE 80 443
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
