@@ -12,13 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ccf79da-f35e-4c0d-b717-fbe4359f21a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/сontinuous-integration.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/сontinuous-integration.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +291,7 @@
       <workItem from="1721907757517" duration="790000" />
       <workItem from="1721908587865" duration="5610000" />
       <workItem from="1721927544522" duration="4015000" />
-      <workItem from="1722001385390" duration="1195000" />
+      <workItem from="1722001385390" duration="5710000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -347,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721900265813</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Configure docker">
+      <option name="closed" value="true" />
+      <created>1722014370232</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722014370232</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,6 +386,7 @@
     <MESSAGE value="Setup project" />
     <MESSAGE value="Setup database" />
     <MESSAGE value="Update project structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update project structure" />
+    <MESSAGE value="Configure docker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configure docker" />
   </component>
 </project>
