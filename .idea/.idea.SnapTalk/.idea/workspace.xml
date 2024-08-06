@@ -11,11 +11,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ccf79da-f35e-4c0d-b717-fbe4359f21a6" name="Changes" comment="Update nginx">
+    <list default="true" id="8ccf79da-f35e-4c0d-b717-fbe4359f21a6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IAuthenticationService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/ICurrentContextProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IJwtGeneratorService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IJwtOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IUserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/AuthenticationService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/JwtGeneratorService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/JwtOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/UserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/LoginRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/RefreshTokenRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/RegisterRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/TokenResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Context/EntityConfigurations/SessionEntityConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Entities/SessionEntity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Controllers/AuthenticationController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Controllers/UsersController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Services/CurrentContextProvider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SnapTalk/Docker/docker-compose.generated.override.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnapTalk/Docker/docker-compose.generated.override.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.BLL/SnapTalk.BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/SnapTalk.BLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Context/SnapTalkContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Context/SnapTalkContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Entities/UserEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Entities/UserEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Migrations/20240722145513_InitializeModels.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Migrations/20240722145513_InitializeModels.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Migrations/SnapTalkContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/SnapTalk.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/SnapTalk.DAL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Extensions/ServiceCollectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +60,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d382df578ec93391918cfaa4ce7f4b8f35c9aed1241d6556dc9be26df13c/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/RiderProjects/SnapTalk/src/SnapTalk.DAL/Context/SnapTalkContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/RiderProjects/SnapTalk/src/SnapTalk.DAL/Entities/UserEntity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/RiderProjects/SnapTalk/src/SnapTalk.WebAPI/Extensions/ServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Home/RiderProjects/SnapTalk/src/SnapTalk.WebAPI/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -76,7 +106,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected=".NET Launch Settings Profile.SnapTalk.WebAPI: SnapTalkAPI">
     <configuration name="SnapTalk.WebAPI" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/SnapTalk.WebAPI/bin/Debug/net8.0/SnapTalk.WebAPI.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -295,7 +325,13 @@
       <workItem from="1721908587865" duration="5610000" />
       <workItem from="1721927544522" duration="4015000" />
       <workItem from="1722001385390" duration="5710000" />
-      <workItem from="1722067817195" duration="9567000" />
+      <workItem from="1722067817195" duration="10082000" />
+      <workItem from="1722101051853" duration="1017000" />
+      <workItem from="1722265126060" duration="1206000" />
+      <workItem from="1722423560291" duration="11836000" />
+      <workItem from="1722530054707" duration="6338000" />
+      <workItem from="1722607706182" duration="4612000" />
+      <workItem from="1722946117090" duration="11811000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -393,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722088960087</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update dockerfile">
+      <option name="closed" value="true" />
+      <created>1722092177322</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722092177322</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,6 +480,7 @@
     <MESSAGE value="Update nginx conf" />
     <MESSAGE value="Update" />
     <MESSAGE value="Update nginx" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update nginx" />
+    <MESSAGE value="Update dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update dockerfile" />
   </component>
 </project>

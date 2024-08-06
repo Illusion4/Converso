@@ -7,11 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces\" />
-      <Folder Include="Services\" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <ProjectReference Include="..\SnapTalk.Common\SnapTalk.Common.csproj" />
       <ProjectReference Include="..\SnapTalk.DAL\SnapTalk.DAL.csproj" />
     </ItemGroup>
 

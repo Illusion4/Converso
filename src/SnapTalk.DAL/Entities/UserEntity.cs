@@ -13,4 +13,6 @@ public class UserEntity : IdentityUser<Guid>
     public ICollection<UserChatEntity> UserChats { get; set; } = new List<UserChatEntity>();
     
     public ICollection<MessageEntity> Messages { get; set; } = new List<MessageEntity>();
+    
+    public ICollection<SessionEntity> Sessions { get; set; } = new List<SessionEntity>();
 }

@@ -8,7 +8,6 @@ namespace SnapTalk.Domain.Context;
 
 public class SnapTalkContext : IdentityDbContext<UserEntity, IdentityRole<Guid>, Guid>
 {
-    
     public SnapTalkContext(DbContextOptions<SnapTalkContext> options) : base(options)
     { }
     
@@ -17,6 +16,8 @@ public class SnapTalkContext : IdentityDbContext<UserEntity, IdentityRole<Guid>,
     public DbSet<UserChatEntity> UserChats { get; set; }
     
     public DbSet<MessageEntity> Messages { get; set; }
+    
+    public DbSet<SessionEntity> Sessions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

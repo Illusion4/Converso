@@ -11,10 +11,8 @@ builder.Configuration
     .Build();
 
 builder.WebHost.UseUrls("http://*:5000");
- 
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddJwtGeneratorOptions(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -24,7 +22,10 @@ builder.Services.AddDbContext<SnapTalkContext>(options =>
         optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(SnapTalkContext).Assembly.FullName));
 });
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthentication(builder.Configuration);
+builder.Services.AddCoreServices();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -36,6 +37,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapControllers();
 
 app.UseHttpsRedirection();
 
