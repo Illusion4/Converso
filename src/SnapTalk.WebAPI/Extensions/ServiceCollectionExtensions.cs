@@ -46,7 +46,6 @@ public static class ServiceCollectionExtensions
 
     public static IServiceCollection AddCoreServices(this IServiceCollection services)
     {
-        //services.AddScoped<IUserService, UserService>();
         services.AddScoped<IJwtGeneratorService, JwtGeneratorService>();
         services.AddScoped<ICurrentContextProvider, CurrentContextProvider>();
         services.AddScoped<IAuthenticationService, AuthenticationService>();

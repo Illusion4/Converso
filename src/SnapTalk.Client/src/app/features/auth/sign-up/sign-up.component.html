@@ -1,0 +1,39 @@
+<div class="page-wrapper d-flex justify-content-center align-items-center vh-100">
+    <div class="container text-center p-5 w-auto">
+    
+    @if(1){
+        <h1 class="font-weight-bold mb-5 auth-header">Create an account</h1>
+
+        <div class="d-flex flex-column align-items-center gap-3">
+            <app-input [(value)]="value" [placeholder]="'Email address'"></app-input>
+
+            <app-input [(value)]="value" [placeholder]="'Username'"></app-input>
+
+            <app-input [(value)]="value" [placeholder]="'Password'"></app-input>
+            
+            <button type="button" class="btn btn-lg mt-4">Continue</button>
+
+            <span> Already have an account? Login. </span>
+        </div>
+    }
+    @else if (1) {
+        <h1 class="font-weight-bold mb-4">Email Verification</h1>
+        <p>Launch code has been sent to <span>adsfasfasdf.gmail.com</span> </p>
+        <p>Enter code to continue*</p>
+        <app-otp-verification></app-otp-verification>
+    }
+    @else () {
+        <img src="../../../../assets/avatar.jpg" alt="" class="profile-image mb-3">
+        <h1 class="profile-header mb-2">Profile info</h1>
+        <p class="profile-description mb-4">Enter your name and add a profile photo</p>
+
+        <div class="d-flex flex-column gap-3">
+            <app-input [(value)]="value" [placeholder]="'First name (required)'"></app-input>
+
+            <app-input [(value)]="value" [placeholder]="'Last name (optional)'"></app-input>
+
+            <button type="button" class="btn btn-lg">Continue</button>
+        </div>
+    }
+    </div>
+</div>

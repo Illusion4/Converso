@@ -13,10 +13,7 @@ public class CurrentContextProvider(IHttpContextAccessor httpContextAccessor) : 
             var value = httpContextAccessor.HttpContext?.User
                 .FindFirst(x => x.Type == JwtRegisteredClaimNames.Jti)?.Value;
             
-            if (value is null)
-                throw new Exception("User is not authenticated");
-            
-            return Guid.Parse(value);
+            return Guid.TryParse(value, out var userId) ? userId : Guid.Empty;
         }
     }
 }

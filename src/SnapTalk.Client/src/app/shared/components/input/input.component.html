@@ -1,0 +1,14 @@
+<div class="input-form">
+    <label [for]="identifier()">
+        {{ label() }}
+    </label>
+    <input autocomplete="off" class="font-weight-bold" 
+    [type]="type()" 
+    [id]="identifier()"
+    [name]="identifier()"
+    [value]="value()"
+    [style.height]="height()"
+    [style.width]="width()"
+    [placeholder]="placeholder()"
+    >
+</div>

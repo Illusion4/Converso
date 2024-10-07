@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using SnapTalk.BLL.Interfaces;
+using SnapTalk.BLL.Services;
 using SnapTalk.Domain.Context;
 using SnapTalk.WebAPI.Extensions;
 
@@ -22,6 +24,10 @@ builder.Services.AddDbContext<SnapTalkContext>(options =>
         optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(SnapTalkContext).Assembly.FullName));
 });
 
+builder.Services.AddSingleton(new EmailConfig("gaston.gleason75@ethereal.email", "7zEqZk92Rf8BV4k4HA",
+    "smtp.ethereal.email", 587));
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddSingleton<IOtpService, OtpService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthentication(builder.Configuration);
 builder.Services.AddCoreServices();

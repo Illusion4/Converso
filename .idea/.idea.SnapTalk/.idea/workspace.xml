@@ -12,36 +12,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8ccf79da-f35e-4c0d-b717-fbe4359f21a6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IAuthenticationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/ICurrentContextProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IJwtGeneratorService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IJwtOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IUserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/AuthenticationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/JwtGeneratorService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/JwtOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/UserService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/LoginRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/RefreshTokenRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/RegisterRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/TokenResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Context/EntityConfigurations/SessionEntityConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Entities/SessionEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Controllers/AuthenticationController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Controllers/UsersController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Services/CurrentContextProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IEmailService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IOtpService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/EmailConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/EmailService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/OtpService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/AuthenticationError.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/Error.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/Response.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/SendVerifyEmailCodeRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Context/EntityConfigurations/SignupCodeEntityConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Entities/SignupCodeEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnapTalk/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IAuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Interfaces/IAuthenticationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/AuthenticationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/Services/AuthenticationService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnapTalk.BLL/SnapTalk.BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.BLL/SnapTalk.BLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Client/src/styles.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Client/src/styles.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/RegisterRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.Common/DTO/RegisterRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Context/SnapTalkContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Context/SnapTalkContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Entities/UserEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/Entities/UserEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Migrations/20240722145513_InitializeModels.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Migrations/20240722145513_InitializeModels.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/Migrations/SnapTalkContextModelSnapshot.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnapTalk.DAL/SnapTalk.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.DAL/SnapTalk.DAL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Controllers/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Controllers/AuthenticationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Extensions/ServiceCollectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Services/CurrentContextProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnapTalk.WebAPI/Services/CurrentContextProvider.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +332,14 @@
       <workItem from="1722423560291" duration="11836000" />
       <workItem from="1722530054707" duration="6338000" />
       <workItem from="1722607706182" duration="4612000" />
-      <workItem from="1722946117090" duration="11811000" />
+      <workItem from="1722946117090" duration="13034000" />
+      <workItem from="1723880868348" duration="17402000" />
+      <workItem from="1725810872221" duration="1788000" />
+      <workItem from="1725812828061" duration="1695000" />
+      <workItem from="1725874576196" duration="3277000" />
+      <workItem from="1725882479908" duration="6788000" />
+      <workItem from="1725973030067" duration="1983000" />
+      <workItem from="1728121692853" duration="1938000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -437,7 +445,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722092177322</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add authentication">
+      <option name="closed" value="true" />
+      <created>1722959581614</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722959581614</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,6 +497,7 @@
     <MESSAGE value="Update" />
     <MESSAGE value="Update nginx" />
     <MESSAGE value="Update dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update dockerfile" />
+    <MESSAGE value="Add authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add authentication" />
   </component>
 </project>

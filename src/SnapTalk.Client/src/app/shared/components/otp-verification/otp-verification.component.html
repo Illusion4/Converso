@@ -1,0 +1,20 @@
+<form
+    appInputNavigation
+    appPasteOtp
+    appAutoBlur
+    [isFormValid]="inputs.valid"
+    [appAutoFocus]="true"
+    [regexp]="regexp"
+    (valueChange)="onValueChange($event)"
+    class="otp-form">
+        @for (control of inputs.controls; track $index) {
+            <input 
+            #otpInputElement
+            [value]="control.value"
+            inputmode="numeric"
+            class="otp-input"
+            autocomplete="off"
+            maxlength="1">
+        }
+</form>    
+

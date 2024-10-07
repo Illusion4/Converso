@@ -1,6 +1,3 @@
 namespace SnapTalk.Common.DTO;
 
-public class SendVerifyEmailCodeRequest
-{
-    
-}
+public record SendVerifyEmailCodeRequest(string Email);

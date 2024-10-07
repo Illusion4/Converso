@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
@@ -8,97 +10,123 @@ using SnapTalk.Domain.Entities;
 
 namespace SnapTalk.BLL.Services;
 
-public class AuthenticationService : IAuthenticationService
-{
-    private readonly UserManager<UserEntity> _userManager;
-    private readonly SnapTalkContext _context;
-    private readonly IJwtGeneratorService _jwtGeneratorService;
-    private readonly IJwtOptions _jwtOptions;
-    
-    public AuthenticationService(
-        UserManager<UserEntity> userManager,
+public class AuthenticationService(UserManager<UserEntity> userManager,
         SnapTalkContext context,
         IJwtGeneratorService jwtGeneratorService,
-        IJwtOptions jwtOptions)
+        IJwtOptions jwtOptions,
+        IEmailService emailService,
+        IOtpService otpService)
+    : IAuthenticationService
+{
+    public async Task<Response<TokenResponse>> RegisterAsync(RegisterRequest registerRequest)
     {
-        _userManager = userManager;
-        _context = context;
-        _jwtGeneratorService = jwtGeneratorService;
-        _jwtOptions = jwtOptions;
-    }
-    
-    public async Task<TokenResponse> RegisterAsync(RegisterRequest registerRequest)
-    {
+        var signupCode = await context.SignupCodes
+            .FirstOrDefaultAsync(x => x.Email == registerRequest.Email);
+        
+        if (signupCode == null
+            || !otpService.VerifyOtp(registerRequest.Code, signupCode.Code))
+        {
+            return AuthenticationError.InvalidOtpCode;
+        }
+        
         var user = new UserEntity
         {
+            FirstName = registerRequest.FirstName,
+            LastName = registerRequest.LastName,
             UserName = registerRequest.UserName,
-            Email = registerRequest.Email
+            Email = registerRequest.Email,
         };
-        var result = await _userManager.CreateAsync(user, registerRequest.Password);
+        var result = await userManager.CreateAsync(user, registerRequest.Password);
         
-        var jwtToken = _jwtGeneratorService.GenerateJwtToken(user.Id);
-        var refreshToken = _jwtGeneratorService.GenerateRefreshToken();
-
-        await _context.Sessions.AddAsync(new SessionEntity()
+        //TODO: Add error handling
+        if (!result.Succeeded)
         {
-            ExpiresAt = DateTime.UtcNow.AddDays(_jwtOptions.RefreshTokenExpiryInDays),
-            UserId = user.Id,
-            RefreshToken = refreshToken
-        });
-
-        await _context.SaveChangesAsync();
-
+            throw new Exception( string.Join("; ", result.Errors.Select(x => x.Description).ToArray()));
+        }
+        
+        var jwtToken = jwtGeneratorService.GenerateJwtToken(user.Id);
+        var refreshToken = jwtGeneratorService.GenerateRefreshToken();
+        context.SignupCodes.Remove(signupCode);
+            
+        await context.SaveChangesAsync();
         return new TokenResponse(jwtToken, refreshToken);
     }
 
-    public async Task<TokenResponse> LoginAsync(LoginRequest loginRequest)
+    public async Task<Response<TokenResponse>> LoginAsync(LoginRequest loginRequest)
     {
-        var user = await _userManager.FindByEmailAsync(loginRequest.Email);
+        var user = await userManager.FindByEmailAsync(loginRequest.Email);
         
         if (user == null)
         {
             throw new Exception("User not found");
         }
         
-        var result = await _userManager.CheckPasswordAsync(user, loginRequest.Password);
+        var result = await userManager.CheckPasswordAsync(user, loginRequest.Password);
         
         if (!result)
         {
             throw new Exception("Invalid password");
         }
         
-        var jwtToken = _jwtGeneratorService.GenerateJwtToken(user.Id);
-        var refreshToken = _jwtGeneratorService.GenerateRefreshToken();
+        var jwtToken = jwtGeneratorService.GenerateJwtToken(user.Id);
+        var refreshToken = jwtGeneratorService.GenerateRefreshToken();
         
-        await _context.Sessions.AddAsync(new SessionEntity()
+        await context.Sessions.AddAsync(new SessionEntity()
         {
-            ExpiresAt = DateTime.UtcNow.AddDays(_jwtOptions.RefreshTokenExpiryInDays),
+            ExpiresAt = DateTime.UtcNow.AddDays(jwtOptions.RefreshTokenExpiryInDays),
             UserId = user.Id,
             RefreshToken = refreshToken
         });
         
-        await _context.SaveChangesAsync();
+        await context.SaveChangesAsync();
         
         return new TokenResponse(jwtToken, refreshToken);
     }
 
-    public async Task<TokenResponse> RefreshTokenAsync(RefreshTokenRequest request)
+    public async Task<Response<TokenResponse>> RefreshTokenAsync(RefreshTokenRequest request)
     {
-        var session = await _context.Sessions
+        var session = await context.Sessions
             .FirstOrDefaultAsync(s => s.RefreshToken == request.RefreshToken);
 
         if (session == null || session.IsExpired){
             throw new Exception("Session not found");}
         
-        var newJwtToken = _jwtGeneratorService.GenerateJwtToken(session.UserId);
-        var newRefreshToken = _jwtGeneratorService.GenerateRefreshToken();
+        var newJwtToken = jwtGeneratorService.GenerateJwtToken(session.UserId);
+        var newRefreshToken = jwtGeneratorService.GenerateRefreshToken();
         
         session.RefreshToken = newRefreshToken;
-        session.ExpiresAt = DateTime.UtcNow.AddDays(_jwtOptions.RefreshTokenExpiryInDays);
-        _context.Sessions.Update(session);
+        session.ExpiresAt = DateTime.UtcNow.AddDays(jwtOptions.RefreshTokenExpiryInDays);
+        context.Sessions.Update(session);
         
-        await _context.SaveChangesAsync();
+        await context.SaveChangesAsync();
         
         return new TokenResponse(newJwtToken, newRefreshToken);
+    }
+
+    public async Task SendVerifyEmailCodeAsync(SendVerifyEmailCodeRequest request)
+    {
+        var code = otpService.GenerateOtp();
+        var hashedCode = otpService.HashOtp(code);
+        
+        var signupCode = new SignupCodeEntity
+        {
+            Email = request.Email,
+            Code = hashedCode
+        };
+
+        var isEmailIsUsed = await context.SignupCodes.AnyAsync(x => x.Email == request.Email);
+
+        if (isEmailIsUsed)
+        {
+            context.SignupCodes.Update(signupCode);
+        }
+        else
+        {
+            await context.SignupCodes.AddAsync(signupCode);
+        }
+        
+        await context.SaveChangesAsync();
+        
+        await emailService.SendEmailAsync(request.Email, "Verify Email", $"Your code is {code}");
     }
 }

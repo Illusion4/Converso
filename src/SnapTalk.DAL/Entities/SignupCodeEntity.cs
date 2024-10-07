@@ -1,8 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SnapTalk.Domain.Entities;
 
 public class SignupCodeEntity
 {
-    public required string Email { get; set; }
+    public string Email { get; set; }
     
-    public required int Code { get; set; }
+    public string Code { get; set; }
 }
