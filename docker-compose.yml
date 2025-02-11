@@ -10,6 +10,7 @@ services:
     container_name: "snap-talk-api"
     depends_on:
       - sql_server
+      - azurite
     environment:
         ASPNETCORE_ENVIRONMENT: "Development"
         ConnectionStrings__DefaultConnection: "Server=sql_server;Database=SnapTalk;User=sa;Password=Password123!;TrustServerCertificate=True"
@@ -39,6 +40,15 @@ services:
     environment:
         SA_PASSWORD: "Password123!"
         ACCEPT_EULA: "Y"
+    networks:
+      - back
+  
+  azurite:
+    image: "mcr.microsoft.com/azure-storage/azurite"
+    container_name: azurite
+    ports:
+      - "10000:10000"
+    command: "azurite-blob --blobHost 0.0.0.0 -l /data"
     networks:
       - back
         

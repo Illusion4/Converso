@@ -25,6 +25,11 @@ export class OtpVerificationComponent {
 
   onValueChange($event: OtpValueChangeEvent){
     this.inputs.controls[$event.index].setValue($event.value);
+
+    if(this.inputs.valid){
+      const otpCode = this.inputs.value.join('');
+      this.otpComplete.emit(otpCode);
+    }
   }
 
 }

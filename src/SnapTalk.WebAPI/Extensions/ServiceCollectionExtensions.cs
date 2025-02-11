@@ -1,12 +1,14 @@
 using System.Text;
+using Azure.Storage.Blobs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SnapTalk.BLL.Interfaces;
 using SnapTalk.BLL.Services;
+using SnapTalk.Common.DTO;
 using SnapTalk.Domain.Context;
 using SnapTalk.Domain.Entities;
-using SnapTalk.WebAPI.Services;
 
 namespace SnapTalk.WebAPI.Extensions;
 
@@ -26,14 +28,21 @@ public static class ServiceCollectionExtensions
             })
             .AddEntityFrameworkStores<SnapTalkContext>()
             .AddDefaultTokenProviders();
+        
 
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
             .AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
                     ValidateAudience = true,
+                    ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = configuration["Jwt:Issuer"],
                     ValidAudience = configuration["Jwt:Audience"],
@@ -49,6 +58,10 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IJwtGeneratorService, JwtGeneratorService>();
         services.AddScoped<ICurrentContextProvider, CurrentContextProvider>();
         services.AddScoped<IAuthenticationService, AuthenticationService>();
+        services.AddScoped<IChatsService, ChatsService>();
+        services.AddScoped<IMessageService, MessageService>();
+        services.AddScoped<IAvatarService, AvatarService>();
+        services.AddScoped<IUserService, UserService>();
         
         return services;
     }
@@ -71,6 +84,51 @@ public static class ServiceCollectionExtensions
         };
         services.AddSingleton<IJwtOptions>(jwtOptions);
         
+        return services;
+    }
+    
+    public static IServiceCollection AddAzureBlobServices(
+        this IServiceCollection services, IConfiguration configuration)
+    {
+        var blobUrl = configuration["BlobConnectionString"];
+        var blobContainerName = configuration["BlobContainerName"];
+        var blobAccessUrl= configuration["BlobAccessUrl"];
+
+        var settings = new BlobStorageSettings(blobUrl!, blobContainerName!, blobAccessUrl!);
+        var blobContainerClient = new BlobContainerClient(settings.BlobConnectionString, settings.BlobContainerName);
+
+        services.AddSingleton(_ => settings);
+
+        services.AddSingleton(_ => blobContainerClient);
+
+        services.AddScoped<IBlobService, BlobService>();
+
+        return services;
+    }
+    
+    public static IServiceCollection ConfigureCustomValidationResponse(this IServiceCollection services)
+    {
+        services.Configure<ApiBehaviorOptions>(options =>
+        {
+            options.InvalidModelStateResponseFactory = context =>
+            {
+                var errors = context.ModelState
+                    .Where(x => x.Value!.Errors.Count > 0)
+                    .SelectMany(x => x.Value!.Errors.Select(e => 
+                        new Error("VALIDATION_ERROR", 
+                            e.ErrorMessage,
+                            new Dictionary<string, object> { { "field", x.Key } })))
+                    .ToList();
+
+                var response = Response<object>.Error(errors);
+
+                return new ObjectResult(response)
+                {
+                    StatusCode = StatusCodes.Status200OK
+                };
+            };
+        });
+
         return services;
     }
 }

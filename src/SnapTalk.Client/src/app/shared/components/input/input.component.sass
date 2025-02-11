@@ -3,14 +3,20 @@
 input
     border: none
     border-radius: 8px
-    color: $primary-text-color
-    background-color: $input-background-color
-    border: 1px solid $input-border-color
-    font-size: 16px
+    background-color: #0f1620
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    border-radius: 8px
+    color: #ffffff
+    font-size: 0.875rem
     padding: 1rem
     &:focus
-        outline: 3px solid $input-focus-border-color
+        outline: 1px solid $input-focus-border-color
         caret-color: $input-focus-border-color
         caret: 3px
     &::placeholder
         color: $secondary-text-color
+    &.invalid 
+      border-color: #e53e3e
+      &:focus 
+        border-color: #e53e3e
+        box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.1)
