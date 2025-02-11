@@ -11,12 +11,14 @@ public class JwtGeneratorService(IJwtOptions jwtOptions) : IJwtGeneratorService
     public string GenerateJwtToken(Guid userId)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
-        var keyBytes = Encoding.ASCII.GetBytes(jwtOptions.JwtSecretKey);
+        var keyBytes = Encoding.UTF8.GetBytes(jwtOptions.JwtSecretKey);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(new[] { new Claim("id", userId.ToString()) }),
+            Subject = new ClaimsIdentity(new[] { new Claim(JwtRegisteredClaimNames.Jti, userId.ToString()) }),
             Expires = DateTime.UtcNow.AddMinutes(jwtOptions.JwtExpiryInMinutes),
+            Issuer = jwtOptions.JwtIssuer,
+            Audience = jwtOptions.JwtAudience,
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256Signature)
         };
 

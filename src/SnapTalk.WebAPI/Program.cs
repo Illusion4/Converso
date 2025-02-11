@@ -1,8 +1,16 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using SnapTalk.BLL.Hubs;
 using SnapTalk.BLL.Interfaces;
 using SnapTalk.BLL.Services;
+using SnapTalk.Common.DTO;
 using SnapTalk.Domain.Context;
 using SnapTalk.WebAPI.Extensions;
+using SnapTalk.WebAPI.Validators.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,22 +24,50 @@ builder.WebHost.UseUrls("http://*:5000");
 
 builder.Services.AddJwtGeneratorOptions(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please insert JWT with Bearer into field",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer", },
+            },
+            Array.Empty<string>()
+        },
+    });
+});
 
 builder.Services.AddDbContext<SnapTalkContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-        optionsBuilder => optionsBuilder.MigrationsAssembly(typeof(SnapTalkContext).Assembly.FullName));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 builder.Services.AddSingleton(new EmailConfig("gaston.gleason75@ethereal.email", "7zEqZk92Rf8BV4k4HA",
     "smtp.ethereal.email", 587));
+builder.Services.AddAzureBlobServices(builder.Configuration);
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddSingleton<IOtpService, OtpService>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(builder.Configuration);
 builder.Services.AddCoreServices();
 builder.Services.AddControllers();
+builder.Services.ConfigureCustomValidationResponse();
+builder.Services.AddFluentValidationAutoValidation()
+    .AddFluentValidationClientsideAdapters()
+    .AddValidatorsFromAssemblyContaining<UserRegisterRequestValidator>();
+builder.Services.AddSignalR();
+builder.Services.AddCors();
+
 
 var app = builder.Build();
 
@@ -44,8 +80,23 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapControllers();
-
 app.UseHttpsRedirection();
+app.UseCors(opt => opt
+    .WithOrigins("http://localhost:4200")
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials());
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor |
+                       ForwardedHeaders.XForwardedProto,
+});
+
+app.MapControllers();
+app.MapHub<ChatHub>("/chatHub");
 
 app.Run();

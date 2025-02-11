@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SnapTalk.BLL.Interfaces;
 using SnapTalk.Common.DTO;
@@ -16,8 +17,8 @@ public class AuthenticationController(ICurrentContextProvider currentContextProv
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
         var response = await authenticationService.RegisterAsync(request);
-        
-        return response.IsSuccess ? Ok(response.Data) : BadRequest(response.Error);
+
+        return Ok(response);
     }
     
     [HttpPost("login")]
@@ -25,7 +26,7 @@ public class AuthenticationController(ICurrentContextProvider currentContextProv
     {
         var response = await authenticationService.LoginAsync(request);
         
-        return response.IsSuccess ? Ok(response.Data) : BadRequest(response.Error);
+        return Ok(response);
     }
     
     [HttpPost("refresh-token")]
@@ -33,7 +34,7 @@ public class AuthenticationController(ICurrentContextProvider currentContextProv
     {
         var response = await authenticationService.RefreshTokenAsync(request);
         
-        return response.IsSuccess ? Ok(response.Data) : BadRequest(response.Error);
+        return Ok(response);
     }
     
     [HttpPost("send-verify-email-code")]

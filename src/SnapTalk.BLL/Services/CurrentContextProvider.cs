@@ -1,8 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 using SnapTalk.BLL.Interfaces;
 
-namespace SnapTalk.WebAPI.Services;
+namespace SnapTalk.BLL.Services;
 
 public class CurrentContextProvider(IHttpContextAccessor httpContextAccessor) : ICurrentContextProvider
 {
@@ -11,7 +12,7 @@ public class CurrentContextProvider(IHttpContextAccessor httpContextAccessor) : 
         get
         {
             var value = httpContextAccessor.HttpContext?.User
-                .FindFirst(x => x.Type == JwtRegisteredClaimNames.Jti)?.Value;
+                .FindFirstValue(JwtRegisteredClaimNames.Jti);
             
             return Guid.TryParse(value, out var userId) ? userId : Guid.Empty;
         }
