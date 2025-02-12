@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapTalk.WebAPI", "src\SnapTalk.WebAPI\SnapTalk.WebAPI.csproj", "{EC1AA5F7-2435-42F5-A28A-1EAF2F24F358}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converso.WebAPI", "src\Converso.WebAPI\Converso.WebAPI.csproj", "{EC1AA5F7-2435-42F5-A28A-1EAF2F24F358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapTalk.DAL", "src\SnapTalk.DAL\SnapTalk.DAL.csproj", "{E9877B66-340F-44B4-B01C-480EB59AD37F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converso.DAL", "src\Converso.DAL\Converso.DAL.csproj", "{E9877B66-340F-44B4-B01C-480EB59AD37F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapTalk.BLL", "src\SnapTalk.BLL\SnapTalk.BLL.csproj", "{ECB42E28-C20D-4880-BCD3-B6C5C5337695}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converso.BLL", "src\Converso.BLL\Converso.BLL.csproj", "{ECB42E28-C20D-4880-BCD3-B6C5C5337695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapTalk.Common", "src\SnapTalk.Common\SnapTalk.Common.csproj", "{DF227FD1-1271-4ABA-AB75-8E7B8B558733}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converso.Common", "src\Converso.Common\Converso.Common.csproj", "{DF227FD1-1271-4ABA-AB75-8E7B8B558733}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

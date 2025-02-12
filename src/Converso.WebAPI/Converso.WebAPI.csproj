@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>SnapTalk.WebAPI</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -25,7 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SnapTalk.BLL\SnapTalk.BLL.csproj" />
+      <ProjectReference Include="..\Converso.BLL\Converso.BLL.csproj" />
     </ItemGroup>
 
 </Project>

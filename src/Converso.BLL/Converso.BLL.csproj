@@ -4,11 +4,12 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>SnapTalk.BLL</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\SnapTalk.Common\SnapTalk.Common.csproj" />
-      <ProjectReference Include="..\SnapTalk.DAL\SnapTalk.DAL.csproj" />
+      <ProjectReference Include="..\Converso.Common\Converso.Common.csproj" />
+      <ProjectReference Include="..\Converso.DAL\Converso.DAL.csproj" />
     </ItemGroup>
 
     <ItemGroup>
