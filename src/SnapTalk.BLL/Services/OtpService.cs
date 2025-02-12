@@ -9,13 +9,9 @@ public class OtpService : IOtpService
     public string GenerateOtp() =>
         RandomNumberGenerator.GetInt32(100000, 999999).ToString();
     
-    public string HashOtp(string otp)
-    {
-        return ComputeSha256Hash(otp);
-    }
-
-    public bool VerifyOtp(string otp, string hashedOtp) =>
-        HashOtp(otp) == hashedOtp;
+    public string HashOtp(string otp) => ComputeSha256Hash(otp);
+    
+    public bool VerifyOtp(string otp, string hashedOtp) => HashOtp(otp) == hashedOtp;
 
     private string ComputeSha256Hash(string input)
     {

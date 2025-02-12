@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using SnapTalk.BLL.Interfaces;
 using SnapTalk.BLL.Services;
 using SnapTalk.Common.DTO;
@@ -62,6 +63,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IMessageService, MessageService>();
         services.AddScoped<IAvatarService, AvatarService>();
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IEmailService, EmailService>();
+        services.AddSingleton<IOtpService, OtpService>();
         
         return services;
     }
@@ -130,5 +133,30 @@ public static class ServiceCollectionExtensions
         });
 
         return services;
+    }
+
+    public static IServiceCollection AddSwagger(this IServiceCollection services)
+    {
+        return services.AddSwaggerGen(c =>
+        {
+            c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                In = ParameterLocation.Header,
+                Description = "Please insert JWT with Bearer into field",
+                Name = "Authorization",
+                Type = SecuritySchemeType.ApiKey,
+            });
+
+            c.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer", },
+                    },
+                    Array.Empty<string>()
+                },
+            });
+        });
     }
 }

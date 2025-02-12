@@ -5,26 +5,24 @@ namespace SnapTalk.BLL.Interfaces;
 
 public class AvatarService(IBlobService blobService) : IAvatarService
 {
+    private const int DefaultAvatarSize = 100;
     public byte[] GenerateAvatar(string avatarText, string color)
     {
-        byte[] avatarBytes = GenerateAvatar(avatarText, color, 100);
-        var uniqueFileName = FileNameHelper.CreateUniqueFileName($"{avatarText}.png");
-
-        return avatarBytes;
+        return GenerateAvatar(avatarText, color, DefaultAvatarSize);
     }
     
     private byte[] GenerateAvatar(string avatarText, string color, int size)
     {
         // Ensure text is uppercase and max 2 characters
-        string text = avatarText.ToUpper().Substring(0, Math.Min(2, avatarText.Length));
+        var text = avatarText.ToUpper().Substring(0, Math.Min(2, avatarText.Length));
 
-        SKBitmap bitmap = new SKBitmap(size, size);
-        using SKCanvas canvas = new SKCanvas(bitmap);
+        var bitmap = new SKBitmap(size, size);
+        using var canvas = new SKCanvas(bitmap);
 
         // Background color
-        SKPaint backgroundPaint = new SKPaint
+        var backgroundPaint = new SKPaint
         {
-            Color = SKColor.Parse(color), // Example blue
+            Color = SKColor.Parse(color),
             IsAntialias = true
         };
 
@@ -32,8 +30,8 @@ public class AvatarService(IBlobService blobService) : IAvatarService
         canvas.DrawRect(0, 0, size, size, backgroundPaint);
 
         // Text settings
-        using SKFont font = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Bold), size / 3);
-        using SKPaint textPaint = new SKPaint
+        using var font = new SKFont(SKTypeface.FromFamilyName("Arial", SKFontStyle.Bold), size / 3);
+        using var textPaint = new SKPaint
         {
             Color = SKColors.White,
             IsAntialias = true
@@ -51,8 +49,8 @@ public class AvatarService(IBlobService blobService) : IAvatarService
         canvas.DrawText(text, x, y, SKTextAlign.Left, font, textPaint);
 
         // Convert to PNG byte array
-        using SKImage img = SKImage.FromBitmap(bitmap);
-        using SKData data = img.Encode(SKEncodedImageFormat.Png, 100);
+        using var img = SKImage.FromBitmap(bitmap);
+        using var data = img.Encode(SKEncodedImageFormat.Png, 100);
         return data.ToArray();
     }
 

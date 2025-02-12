@@ -24,27 +24,7 @@ builder.WebHost.UseUrls("http://*:5000");
 
 builder.Services.AddJwtGeneratorOptions(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        In = ParameterLocation.Header,
-        Description = "Please insert JWT with Bearer into field",
-        Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey,
-    });
-
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer", },
-            },
-            Array.Empty<string>()
-        },
-    });
-});
+builder.Services.AddSwagger();
 
 builder.Services.AddDbContext<SnapTalkContext>(options =>
 {
@@ -54,8 +34,6 @@ builder.Services.AddDbContext<SnapTalkContext>(options =>
 builder.Services.AddSingleton(new EmailConfig("gaston.gleason75@ethereal.email", "7zEqZk92Rf8BV4k4HA",
     "smtp.ethereal.email", 587));
 builder.Services.AddAzureBlobServices(builder.Configuration);
-builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddSingleton<IOtpService, OtpService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(builder.Configuration);
