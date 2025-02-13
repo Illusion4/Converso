@@ -1,0 +1,135 @@
+<main class="chat">
+    @if (selectedChat$ | async; as selectedChat) {
+        <div class="chat-header">
+            <svg *ngIf="!chatService.chatListOpened()" (click)="chatService.openChatList()" fill="rgb(148, 163, 184)" class="arrow-back" width="24px" height="24px" viewBox="0 0 52 52" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" stroke="rgb(148, 163, 184)" stroke-width="2"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.4560000000000002"></g><g id="SVGRepo_iconCarrier"><path d="M50,24H6.83L27.41,3.41a2,2,0,0,0,0-2.82,2,2,0,0,0-2.82,0l-24,24a1.79,1.79,0,0,0-.25.31A1.19,1.19,0,0,0,.25,25c0,.07-.07.13-.1.2l-.06.2a.84.84,0,0,0,0,.17,2,2,0,0,0,0,.78.84.84,0,0,0,0,.17l.06.2c0,.07.07.13.1.2a1.19,1.19,0,0,0,.09.15,1.79,1.79,0,0,0,.25.31l24,24a2,2,0,1,0,2.82-2.82L6.83,28H50a2,2,0,0,0,0-4Z"></path></g></svg>            <div class="chat-info">
+                <p>{{selectedChat?.title}}</p>
+                <p>{{selectedChat?.usersCount}} members</p>
+            </div>
+
+            <div class="chat-actions">
+                <svg width="24px" height="24px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" class="bi bi-three-dots-vertical"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path> </g></svg>
+                <div class="actions">
+                    <button class="chat-action-btn delete d-flex">
+                        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 12V17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14 12V17" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M4 7H20" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <p>Delete Chat</p>
+                    </button>
+                    <button class="chat-action-btn leave d-flex">
+                        <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Session-Leave</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Session-Leave"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="9" y1="12" x2="19" y2="12" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"> </line> <path d="M16,8 L18.5858,10.5858 C19.3668,11.3668 19.3668,12.6332 18.5858,13.4142 L16,16" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"> </path> <path d="M16,4 L6,4 C4.89543,4 4,4.89543 4,6 L4,18 C4,19.1046 4.89543,20 6,20 L16,20" id="Path" stroke="#ffffff" stroke-width="2" stroke-linecap="round"> </path> </g> </g> </g></svg>
+                        <p>Leave Chat</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-content" #scrollContainer (scroll)="onScroll()">
+            @for (message of messageService.messages$ | async; track $index) {
+                <div class="message"
+                    [class.sent]="message.userId === (authService.currentUserId$ | async)">
+                <div class="message-row">
+
+                    <img class="avatar" [src]="message.userAvatarUrl" alt="">
+                      
+                    
+                    <div class="message-content">
+                        <svg viewBox="0 0 11 20" width="11" height="20" class="bubble-tail">
+                            <defs>
+                                <linearGradient id="gradient" gradientTransform="rotate(135)">
+                                    <stop offset="0%" stop-color="#1da1f2" />
+                                    <stop offset="100%" stop-color="#1991db" />
+                                </linearGradient>
+                            </defs>
+                            <g transform="translate(9 -14)" fill-rule="evenodd">
+                                <path d="M-6 16h6v17c-.193-2.84-.876-5.767-2.05-8.782-.904-2.325-2.446-4.485-4.625-6.48A1 1 0 01-6 16z" transform="matrix(1 0 0 -1 0 49)"></path>
+                            </g>
+                        </svg>
+                          
+                        @if(message.userId !== (authService.currentUserId$ | async)){
+                            <div class="reply-username" [ngStyle]="{'color': message.displayedNameColor}">
+                                {{message.displayedName}}
+                            </div>
+                        }
+                        @if (message.replyToMessage) {
+                            <div class="reply-preview" [style.border-left]="'3px solid' + message.replyToUserColor">
+                                <div class="reply-header" [style.color]="message.replyToUserColor">
+                                    {{ message.replyToUser }}
+                                </div>
+                                <div class="reply-text">{{ message.replyToMessage }}</div>
+                            </div>
+                        }
+                        @if(message.attachmentUrl){
+                        <div>
+                            <img
+                            class="message-image"
+                            [src]="message.attachmentUrl"
+                            alt=""/>
+                        </div>
+                        }
+                        <span class="message-text">{{ message.message }}</span>
+                    </div>
+                    
+                </div>
+                <div class="message-actions">
+                    <span class="time">{{formatTime(message.createdAt)}}</span>
+                    <button class="reply-button" (click)="replyToMessage(message)">
+                    Reply
+                    </button>
+                </div>
+                </div>
+            }
+        </div>
+        
+        @if(replyingToMessage()){
+            <div class="reply-info">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0303 6.46967C10.3232 6.76256 10.3232 7.23744 10.0303 7.53033L6.31066 11.25L14.5 11.25C15.4534 11.25 16.8667 11.5298 18.0632 12.3913C19.298 13.2804 20.25 14.7556 20.25 17C20.25 17.4142 19.9142 17.75 19.5 17.75C19.0858 17.75 18.75 17.4142 18.75 17C18.75 15.2444 18.0353 14.2196 17.1868 13.6087C16.3 12.9702 15.2133 12.75 14.5 12.75L6.31066 12.75L10.0303 16.4697C10.3232 16.7626 10.3232 17.2374 10.0303 17.5303C9.73744 17.8232 9.26256 17.8232 8.96967 17.5303L3.96967 12.5303C3.67678 12.2374 3.67678 11.7626 3.96967 11.4697L8.96967 6.46967C9.26256 6.17678 9.73744 6.17678 10.0303 6.46967Z" fill="rgb(148, 163, 184)"></path> </g></svg>
+                <div class="reply-content">
+                    <span class="reply-username">{{replyingToMessage()?.displayedName}} </span>
+                    <p class="reply-message">{{replyingToMessage()?.message}}</p>    
+                </div>
+                
+                <svg class="cancel-reply" (click)="cancelReply()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+        }
+
+        @if(attachmentPreview()){
+            <div class="reply-info">
+                <div class="reply-content">
+                    <img class="attachment-image" [src]="attachmentPreview()" alt="">  
+                    <span class="attachment-name">{{this.messageForm.value.attachment.name}}</span>
+                </div>
+                
+                <svg class="cancel-reply" (click)="cancelAttachment()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+        }
+            <button 
+            class="scroll-button"
+            [class.shown]="showScrollButton"
+            (click)="scrollToBottom()">
+            ↓
+        </button> 
+        
+           
+        
+        @if (selectedChat?.isMember) {
+            <form class="chat-input" [formGroup]="messageForm">
+                <div>
+                    <svg (click)="attachmentInput.click()" fill="#ffffff" width="16px" height="16px" viewBox="0 0 24 24" id="paper-clip-top-right" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path id="primary" d="M5.23,8.73,9.18,4.78a6.1,6.1,0,0,1,8.61,0h0a6.09,6.09,0,0,1,0,8.6l-6.43,6.43a4,4,0,0,1-5.74,0h0a4.06,4.06,0,0,1,0-5.73l6.74-6.74a2,2,0,0,1,2.87,0h0a2,2,0,0,1,0,2.87l-7,7" style="fill: none; stroke: #ffffff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></g></svg>
+                    <input (change)="onImagePicked($event)" #attachmentInput type="file" style="display: none" />
+                </div>
+                <input type="text" (keydown.enter)="sendMessage(selectedChat)" autofocus  placeholder="Write a message..." formControlName="messageText">
+                <svg (click)="sendMessage(selectedChat)" class="send-btn" width="36px" height="36px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20.7639 12H10.0556M3 8.00003H5.5M4 12H5.5M4.5 16H5.5M9.96153 12.4896L9.07002 15.4486C8.73252 16.5688 8.56376 17.1289 8.70734 17.4633C8.83199 17.7537 9.08656 17.9681 9.39391 18.0415C9.74792 18.1261 10.2711 17.8645 11.3175 17.3413L19.1378 13.4311C20.059 12.9705 20.5197 12.7402 20.6675 12.4285C20.7961 12.1573 20.7961 11.8427 20.6675 11.5715C20.5197 11.2598 20.059 11.0295 19.1378 10.5689L11.3068 6.65342C10.2633 6.13168 9.74156 5.87081 9.38789 5.95502C9.0808 6.02815 8.82627 6.24198 8.70128 6.53184C8.55731 6.86569 8.72427 7.42461 9.05819 8.54246L9.96261 11.5701C10.0137 11.7411 10.0392 11.8266 10.0493 11.9137C10.0583 11.991 10.0582 12.069 10.049 12.1463C10.0387 12.2334 10.013 12.3188 9.96153 12.4896Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </form>
+        }@else {
+            <button class="join-chat" (click)="joinChat(selectedChat)">JOIN</button>
+        }
+
+    }@else {
+        <div class="chat-not-selected">
+            <p>SELECT CHAT</p>
+        </div>
+    }
+</main>

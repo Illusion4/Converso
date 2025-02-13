@@ -1,0 +1,69 @@
+<div class="d-flex">
+    <app-sidenav [activeOption]="'settings'"></app-sidenav>
+    <div class="settings-container">
+        <div class="settings-content">
+          <div class="profile-section">
+            <div class="profile-header">
+                <div class="avatar-wrapper">
+                  <div class="avatar">
+                    <img [src]="(user$ | async)?.profilePictureUrl" alt="">
+                  </div>
+                  <div class="upload-overlay">
+                    <i class="fas fa-camera"></i>
+                  </div>
+                </div>
+                <div class="profile-info">
+                  <h1 *ngIf="(user$ | async) as user" class="name">{{ user.firstName}}</h1>
+                  <div class="status">online</div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="info-group">
+                    <div class="info-row" (click)="onEditField('username')">
+                        <span class="label">
+       
+                            Username
+                            </span>
+                        <span *ngIf="(user$ | async) as user" class="value">{{user.firstName}}</span>
+                    </div>
+                    <div class="info-row" (click)="onEditField('phone')">
+                        <span class="label">
+                    
+                            Email
+                        </span>
+                        <span *ngIf="(user$ | async) as user" class="value">{{user.email}}</span>
+                    </div>
+                    <div class="info-row" (click)="onEditField('bio')">
+                        <span class="label">
+                   
+                            Bio
+                        </span>
+                        <span *ngIf="(user$ | async) as user" class="value bio">{{ user.bio || 'Add a few words about yourself' }}</span>
+                    </div>
+                </div>
+
+                <div class="info-group">
+                    <div class="info-row notifications">
+                        <span class="label">
+                        
+                            Notifications
+                            </span>
+                        <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">
+                          
+                            Active Sessions
+                        </span>
+                        <span class="value highlight">2 devices</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

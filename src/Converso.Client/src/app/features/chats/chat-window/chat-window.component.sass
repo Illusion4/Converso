@@ -1,0 +1,330 @@
+@import 'variables.sass'
+
+ul
+    padding: 10px
+    line-height: 1.375rem
+
+.avatar
+  border-radius: 50%
+  width: 54px
+  height: 54px  
+
+.arrow-back
+    display: none  
+
+@media (max-width: 925px)
+    .arrow-back
+        display: block  
+
+.chat-not-selected
+    display: flex
+    height: 100%
+    justify-content: center 
+    align-items: center
+    p
+        color: #8899a6 !important
+
+.chat
+    display: flex
+    flex-direction: column
+    height: 100vh
+    background-color: #0f1620
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zM22.343 0L13.857 8.485 15.272 9.9l7.9-7.9h-.83zm13.314 0L47.143 11.485 45.728 12.9l-7.9-7.9h-2.17zm-14.143 0l-9.9 9.9 1.415 1.414 7.9-7.9h.585zm5.657 0l9.9 9.9-1.415 1.414-7.9-7.9h-.585zM32 0l12.142 12.142-1.414 1.414L30 .828 17.272 13.556l-1.414-1.414L28 0h4zM.284 0l28 28-1.414 1.414L0 2.544V0h.284zM0 5.373l25.456 25.455-1.414 1.415L0 8.2V5.374zm0 5.656l22.627 22.627-1.414 1.414L0 13.86v-2.83zm0 5.656l19.8 19.8-1.415 1.413L0 19.514v-2.83zm0 5.657l16.97 16.97-1.414 1.415L0 25.172v-2.83zM0 28l14.142 14.142-1.414 1.414L0 30.828V28zm0 5.657L11.314 44.97 9.9 46.386l-9.9-9.9v-2.828zm0 5.657L8.485 47.8 7.07 49.212 0 42.143v-2.83zm0 5.657l5.657 5.657-1.414 1.415L0 47.8v-2.83zm0 5.657l2.828 2.83-1.414 1.413L0 53.456v-2.83zM54.627 60L30 35.373 5.373 60H8.2L30 38.2 51.8 60h2.827zm-5.656 0L30 41.03 11.03 60h2.828L30 43.858 46.142 60h2.83zm-5.656 0L30 46.686 16.686 60h2.83L30 49.515 41.313 60h2.83zm-5.657 0L30 52.343 22.343 60h2.83L30 55.172 34.828 60h2.83zM32 60l-2-2-2 2h4zM59.716 0l-28 28 1.414 1.414L60 2.544V0h-.284zM60 5.373L34.544 30.828l1.414 1.415L60 8.2V5.374zm0 5.656L37.373 33.656l1.414 1.414L60 13.86v-2.83zm0 5.656l-19.8 19.8 1.415 1.413L60 19.514v-2.83zm0 5.657l-16.97 16.97 1.414 1.415L60 25.172v-2.83zM60 28L45.858 42.142l1.414 1.414L60 30.828V28zm0 5.657L48.686 44.97l1.415 1.415 9.9-9.9v-2.828zm0 5.657L51.515 47.8l1.414 1.413 7.07-7.07v-2.83zm0 5.657l-5.657 5.657 1.414 1.415L60 47.8v-2.83zm0 5.657l-2.828 2.83 1.414 1.413L60 53.456v-2.83zM39.9 16.385l1.414-1.414L30 3.658 18.686 14.97l1.415 1.415 9.9-9.9 9.9 9.9zm-2.83 2.828l1.415-1.414L30 9.313 21.515 17.8l1.414 1.413 7.07-7.07 7.07 7.07zm-2.827 2.83l1.414-1.416L30 14.97l-5.657 5.657 1.414 1.415L30 17.8l4.242 4.242zm-2.83 2.827l1.415-1.414L30 20.626l-2.828 2.83 1.414 1.414L30 23.456l1.414 1.414zM56.87 59.414L58.284 58 30 29.716 1.716 58l1.414 1.414L30 32.544l26.87 26.87z' fill='%23131f2c' fill-opacity='0.7' fill-rule='evenodd'/%3E%3C/svg%3E")
+
+    .chat-header
+        background-color: $card-background-color
+        padding: 0.5rem 1rem
+        height: 3.5rem
+        max-height: 3.5rem
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        border-bottom: 1px solid $input-border-color
+        text-align: start
+        gap: 0.5rem
+        .arrow-back
+            cursor: pointer
+        p
+            &:first-child
+                font-size: 16px
+                font-weight: 500
+                color: $primary-text-color
+                white-space: nowrap
+                text-overflow: ellipsis
+                overflow: hidden
+                line-height: 1.3125
+
+            &:last-child
+                font-size: 14px
+                font-weight: 400
+                line-height: 1.3125
+                color: $secondary-text-color
+        .chat-actions
+            cursor: pointer
+            position: relative
+            margin-left: auto
+            &:hover .actions
+                display: flex
+            .actions
+                position: absolute
+                border-radius: 0.25rem
+                background-color: #20222b
+                right: 10px
+                padding: 0.5rem
+                display: flex
+                flex-direction: column
+                gap: 0.5rem
+                display: none
+                transition: background-color 0.2s ease-in-out
+                border: 1px solid $border-color
+                .chat-action-btn
+                    background-color: transparent
+                    border-radius: 0.25rem
+                    align-items: center
+                    padding: 0.5rem 1rem
+                    gap: 10px
+                    p
+                        text-wrap: nowrap
+                        font-size: 1rem
+                        color: #ffffff
+                    &:hover
+                        background-color: rgba(181, 180, 212, 0.6) // Hover effect with subtle color
+                        p
+                            color: #232323
+                        svg
+                            transform: scale(1.1)
+                    &.delete
+                        svg path
+                            stroke: #ff4d4f
+                    &.leave
+                        svg path
+                            stroke: #1e90ff
+                    svg
+                        transition: transform 0.2s ease-in-out
+                    
+    .chat-content
+        display: flex
+        flex-direction: column
+        overflow-y: scroll
+        padding: 1rem
+        position: relative
+        gap: 6px
+        scroll-behavior: smooth
+        background-color: #0f1620
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zM22.343 0L13.857 8.485 15.272 9.9l7.9-7.9h-.83zm13.314 0L47.143 11.485 45.728 12.9l-7.9-7.9h-2.17zm-14.143 0l-9.9 9.9 1.415 1.414 7.9-7.9h.585zm5.657 0l9.9 9.9-1.415 1.414-7.9-7.9h-.585zM32 0l12.142 12.142-1.414 1.414L30 .828 17.272 13.556l-1.414-1.414L28 0h4zM.284 0l28 28-1.414 1.414L0 2.544V0h.284zM0 5.373l25.456 25.455-1.414 1.415L0 8.2V5.374zm0 5.656l22.627 22.627-1.414 1.414L0 13.86v-2.83zm0 5.656l19.8 19.8-1.415 1.413L0 19.514v-2.83zm0 5.657l16.97 16.97-1.414 1.415L0 25.172v-2.83zM0 28l14.142 14.142-1.414 1.414L0 30.828V28zm0 5.657L11.314 44.97 9.9 46.386l-9.9-9.9v-2.828zm0 5.657L8.485 47.8 7.07 49.212 0 42.143v-2.83zm0 5.657l5.657 5.657-1.414 1.415L0 47.8v-2.83zm0 5.657l2.828 2.83-1.414 1.413L0 53.456v-2.83zM54.627 60L30 35.373 5.373 60H8.2L30 38.2 51.8 60h2.827zm-5.656 0L30 41.03 11.03 60h2.828L30 43.858 46.142 60h2.83zm-5.656 0L30 46.686 16.686 60h2.83L30 49.515 41.313 60h2.83zm-5.657 0L30 52.343 22.343 60h2.83L30 55.172 34.828 60h2.83zM32 60l-2-2-2 2h4zM59.716 0l-28 28 1.414 1.414L60 2.544V0h-.284zM60 5.373L34.544 30.828l1.414 1.415L60 8.2V5.374zm0 5.656L37.373 33.656l1.414 1.414L60 13.86v-2.83zm0 5.656l-19.8 19.8 1.415 1.413L60 19.514v-2.83zm0 5.657l-16.97 16.97 1.414 1.415L60 25.172v-2.83zM60 28L45.858 42.142l1.414 1.414L60 30.828V28zm0 5.657L48.686 44.97l1.415 1.415 9.9-9.9v-2.828zm0 5.657L51.515 47.8l1.414 1.413 7.07-7.07v-2.83zm0 5.657l-5.657 5.657 1.414 1.415L60 47.8v-2.83zm0 5.657l-2.828 2.83 1.414 1.413L60 53.456v-2.83zM39.9 16.385l1.414-1.414L30 3.658 18.686 14.97l1.415 1.415 9.9-9.9 9.9 9.9zm-2.83 2.828l1.415-1.414L30 9.313 21.515 17.8l1.414 1.413 7.07-7.07 7.07 7.07zm-2.827 2.83l1.414-1.416L30 14.97l-5.657 5.657 1.414 1.415L30 17.8l4.242 4.242zm-2.83 2.827l1.415-1.414L30 20.626l-2.828 2.83 1.414 1.414L30 23.456l1.414 1.414zM56.87 59.414L58.284 58 30 29.716 1.716 58l1.414 1.414L30 32.544l26.87 26.87z' fill='%23131f2c' fill-opacity='0.7' fill-rule='evenodd'/%3E%3C/svg%3E")
+        .message 
+            max-width: 70%
+            display: flex
+            flex-direction: column
+            gap: 0.25rem
+            align-self: flex-start
+
+            &.sent
+                .message-content
+                    background: linear-gradient(135deg, #1da1f2 0%, #1991db 100%)
+                    .bubble-tail
+                        fill: url(#gradient)
+                    .reply-preview
+                        background-color: rgba(255, 255, 255, 0.2)
+                        border-left: 3px solid rgb(255 255 255) !important
+                        .reply-header
+                            color: rgb(255 255 255) !important
+                        .reply-text 
+                            color: rgb(255 255 255) !important
+
+            .message-row 
+                display: flex
+                gap: 6px
+                align-items: flex-end        
+
+            .avatar 
+                width: 40px
+                height: 40px
+                border-radius: 50%    
+
+            .message-content 
+                padding: 8px
+                min-width: 100px
+                background-color: #17212b
+                position: relative
+                border-radius: 16px 16px 16px 0
+
+                .message-image
+                    max-width: 200px
+                    height: 200px
+                    cursor: pointer
+                
+                .message-text
+                    font-size: 16px
+                    font-weight: 400
+                    line-height: 21px
+
+                .username, .reply-username
+                    font-size: 14px
+                    font-weight: 500
+                    line-height: 18px
+                
+                .username
+                    margin-bottom: 4px
+
+                .reply-preview 
+                    margin-bottom: 4px
+                    padding: 3px 6px 3px 8px
+                    border-radius: 4px
+                    font-size: 0.813rem
+                    background: rgba(29, 161, 242, 0.1)   
+                    border-spacing: 0
+                    border-collapse: collapse                
+
+                .reply-header 
+                    display: flex
+                    align-items: center
+                    gap: 0.375rem
+                    font-size: 14px
+                    margin-bottom: 0.1rem
+                    font-weight: 500
+                    color: #60b0f0
+
+                .reply-text 
+                    white-space: nowrap
+                    overflow: hidden
+                    text-overflow: ellipsis
+                
+                .bubble-tail
+                    width: 11px
+                    fill: #17212b
+                    position: absolute
+                    bottom: 0
+                    left: -8px
+                    height: 20px
+                    display: block
+                    transform: translateY(1px) scaleX(1)
+
+            .message-actions 
+                display: flex
+                align-items: center
+                padding: 0  0 0 6px
+                margin-left: 2.5rem
+
+                .reply-button 
+                    background: none
+                    border: none
+                    color: #8899a6
+                    cursor: pointer
+                    padding: 0.25rem 0.5rem
+                    margin-left: auto
+                    font-size: 0.75rem
+                    display: flex
+                    align-items: center
+                    gap: 0.25rem
+                    transition: all 0.2s ease
+                    border-radius: 4px
+
+                    &:hover 
+                        background-color: rgba(255, 255, 255, 0.05)
+                        color: #1da1f2
+
+                .time 
+                    font-size: 0.688rem
+                    color: #8899a6
+    
+    .reply-info
+        position: relative
+        display: flex
+        align-items: center
+        gap: 20px
+        height: 60px
+        padding: 5px 20px
+        background-color: rgba(15, 22, 32, 0.5)
+        flex-shrink: 0
+        svg
+            height: 24px
+            width: 24px
+            flex-shrink: 0
+        .cancel-reply
+            height: 18px
+            width: 18px
+            margin-left: auto
+            cursor: pointer
+        .reply-content
+            flex-shrink: 0
+            padding-right: 40px
+            text-overflow: ellipsis
+            .reply-username
+                font-size: 16px
+                margin-top: 5px
+                margin-bottom: 0
+            .reply-message
+                color: white
+                text-overflow: ellipsis
+                white-space: nowrap
+                width: 250px
+                color: rgba(255, 255, 255, 0.7)
+                font-size: 14px
+                overflow: hidden
+            .attachment-name
+                color: rgba(255, 255, 255, 0.7)
+                font-size: 14px
+                margin-left: 5px
+            .attachment-image
+                height: 60px
+                object-fit: contain
+
+    .chat-input
+        display: flex
+        align-items: center
+        position: relative
+        gap: 15px
+        padding: 0.8rem 20px
+        background-color: $card-background-color
+        margin-top: auto
+
+        svg
+            stroke: $list-item-hover-background-color
+            cursor: pointer
+
+        input
+            flex-grow: 1
+            padding: 0.5rem
+            border: none
+            border-radius: 0.25rem
+            background-color: transparent
+            color: #e1e1e1
+            outline: none
+            font-size: 16px
+
+            &::placeholder
+                color: $secondary-text-color
+                font-size: 16px
+
+            &:focus
+                border-color: $input-focus-border-color
+
+.join-chat
+    width: 100%
+    min-height: 50px
+    background: linear-gradient(135deg, #1da1f2 0%, #1991db 100%)
+
+.scroll-button
+      position: fixed
+      bottom: 20px
+      right: 20px
+      width: 45px
+      height: 45px
+      border-radius: 50%
+      background: #007bff
+      color: white
+      border: none
+      cursor: pointer
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 20px
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2)
+      transition: 300ms cubic-bezier(0.33, 1, 0.68, 1)
+
+      &:hover 
+        background: #0056b3
+      &.shown
+        transform: translate3d(0, -60px, 0)
+    

@@ -1,0 +1,109 @@
+@import 'variables.sass'
+
+$left-column-min-width: 16rem
+$left-column-max-width: 26.5rem
+$layer-transition: 300ms cubic-bezier(0.33, 1, 0.68, 1)
+
+#Main
+  height: 100%
+  text-align: left
+  overflow: hidden
+  background-color: #0f1620
+
+  @media (min-width: 1276px) 
+    position: relative
+  
+  @media (max-width: 600px) 
+    height: calc(var(--vh, 1vh) * 100)
+  
+  @media (min-width: 926px) 
+    display: grid
+    grid-template-columns: auto auto 1fr
+    grid-template-rows: 100%
+
+app-sidenav
+    @media (max-width: 925px)
+        display: none
+
+app-chat-list
+  width: 33vw
+  min-width: $left-column-min-width
+  max-width: $left-column-max-width
+  height: 100%
+  overflow: hidden
+  position: relative
+
+  @media (min-width: 926px) 
+    $left-column-max-width: 40vw
+
+  @media (min-width: 1276px) 
+    width: 25vw
+    $left-column-max-width: 33vw
+
+  @media (max-width: 925px) 
+    position: fixed
+    left: 0
+    top: 0
+    height: calc(var(--vh, 1vh) * 100)
+    width: 26.5rem !important
+
+    transform: translate3d(-5rem, 0, 0)
+    transition: transform $layer-transition
+
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      right: 0
+      bottom: 0
+      background: black
+      opacity: 0
+      transition: opacity $layer-transition
+      z-index: 1
+      pointer-events: none
+    
+    #Main.left-column-open &
+      transform: translate3d(0, 0, 0)
+    
+  @media (max-width: 600px)
+    height: calc(var(--vh, 1vh) * 100)
+    max-width: none
+    width: 100vw !important
+    transform: translate3d(-20vw, 0, 0)
+
+app-chat-window
+  height: 100%
+
+  @media (max-width: 925px)
+    max-width: none
+    position: fixed
+    left: 0
+    top: 0
+    bottom: 0
+    right: 0
+
+    transform: translate3d(0, 0, 0)
+    transition: transform $layer-transition
+
+    #Main.left-column-open &
+      transform: translate3d(26.5rem, 0, 0)
+  
+  @media (max-width: 600px) 
+    border-left: none
+    
+    #Main.left-column-open &
+      transform: translate3d(100vw, 0, 0)
+    
+  
+.left-column-open app-chat-list 
+  transform: translate3d(0, 0, 0)
+
+
+.middle-column-open app-chat-window 
+  transform: translate3d(0, 0, 0)
+
+
+
+

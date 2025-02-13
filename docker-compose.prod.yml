@@ -1,9 +1,7 @@
 version: "3.7"
 services:
   api:
-    build:
-      context: src
-      dockerfile: Converso.WebAPI/Dockerfile
+    image: vladyslavlintur/converso-api:latest
     ports:
       - "5000:5000"
     restart: on-failure
@@ -20,9 +18,7 @@ services:
       - back
   
   frontend:
-    build:
-      context: src/Converso.Client
-      dockerfile: Dockerfile
+    image: vladyslavlintur/converso-frontend:latest
     ports:
       - "80:80"
       - "443:443"

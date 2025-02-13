@@ -1,0 +1,48 @@
+<section class="chats chat-list">
+    <header class="chats-header">
+        <div class="top-section">
+            <h2>Chats</h2>
+            <button class="new-group-btn" (click)="openNewGroupDialog()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+            New Group
+            </button>
+        </div>
+    
+        <div class="input-with-icon">
+            <svg fill="#ffffff" height="16px" width="16px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 488.40 488.40" xml:space="preserve" stroke="#ffffff" stroke-width="20.024399999999996"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="2.9303999999999997"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M0,203.25c0,112.1,91.2,203.2,203.2,203.2c51.6,0,98.8-19.4,134.7-51.2l129.5,129.5c2.4,2.4,5.5,3.6,8.7,3.6 s6.3-1.2,8.7-3.6c4.8-4.8,4.8-12.5,0-17.3l-129.6-129.5c31.8-35.9,51.2-83,51.2-134.7c0-112.1-91.2-203.2-203.2-203.2 S0,91.15,0,203.25z M381.9,203.25c0,98.5-80.2,178.7-178.7,178.7s-178.7-80.2-178.7-178.7s80.2-178.7,178.7-178.7 S381.9,104.65,381.9,203.25z"></path> </g> </g> </g></svg>
+            <input type="text" placeholder="Search" (input)="searchValueChange($event)">
+        </div>
+    </header>
+    <ul class="chats">
+        @for (chat of chatsService.chats | async; track $index) {
+            <li (click)="selectChat(chat)">
+                <div class="list-item d-flex" 
+                [class.active]="(chatsService.selectedChat | async)?.chatId === chat.chatId">
+                    <img [src]="chat.chatImageUri" alt="" class="avatar">
+                    <div class="chat-info">
+                        <p class="chat-name">{{chat.title}}</p>
+                        @if (chat.lastMessage) {
+                            <p class="last-message">
+                                <span class="last-message-author">{{chat.lastMessageSender}}: </span>
+                                {{chat.lastMessage}}
+                            </p>
+                        }@else() {
+                            <p class="last-message">
+                                No messages yet
+                            </p>
+                        }
+                        
+                    </div>
+                    @if(chat.lastMessageDate){
+                        <span class="last-message-time">{{formatTime(chat.lastMessageDate)}}</span>
+                    }
+                </div>
+            </li>
+        }
+    </ul>
+</section>
