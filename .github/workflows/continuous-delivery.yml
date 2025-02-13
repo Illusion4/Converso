@@ -52,14 +52,6 @@ jobs:
     needs: [ build_frontend, build_api_service ]
     steps:
       - uses: actions/checkout@v3
-      - name: Copy Files to Server
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.HOST_USERNAME }}
-          password: ${{ secrets.HOST_PASSWORD }}
-          source: "docker-compose.prod.yml"
-          target: "~/var/www/app/"
       - name: Update PROD images
         uses: appleboy/ssh-action@master
         with:
@@ -67,22 +59,16 @@ jobs:
           username: ${{ secrets.HOST_USERNAME }}
           password: ${{ secrets.HOST_PASSWORD }}
           script: |
-            cd /var/www/
-            mkdir -p /var/www/app
-            
-            echo '${{ secrets.NGINX_CONF }}' > /var/www/app/nginx.conf
+            cd /var/www/app
             
             # Stop running containers
-            sudo docker-compose -f docker-compose.prod.yml stop
+            sudo docker compose -f docker-compose.prod.yml stop
             
             # Pull latest images
-            sudo docker-compose -f docker-compose.prod.yml pull
+            sudo docker compose -f docker-compose.prod.yml pull
             
             # Remove unused containers & images
             sudo docker system prune -f
             
             # Restart all services (including NGINX & Azurite)
-            sudo docker-compose -f docker-compose.prod.yml up -d --force-recreate
-            
-            # Restart NGINX to apply changes
-            sudo docker restart nginx
+            sudo docker compose -f docker-compose.prod.yml up -d --force-recreate
