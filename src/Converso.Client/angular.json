@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SnapTalk.Client": {
+    "Converso.Client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/snap-talk.client",
+            "outputPath": "dist/converso.client",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -77,10 +77,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "SnapTalk.Client:build:production"
+              "buildTarget": "Converso.Client:build:production"
             },
             "development": {
-              "buildTarget": "SnapTalk.Client:build:development"
+              "buildTarget": "Converso.Client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,7 +88,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "SnapTalk.Client:build"
+            "buildTarget": "Converso.Client:build"
           }
         },
         "test": {
