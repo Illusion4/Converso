@@ -31,6 +31,6 @@ jobs:
           node-version: 18.x
       - name: Install packages and build Angular
         run: |
-          cd src/SnapTalk.Client
+          cd src/Converso.Client
           npm ci
           npm run build

@@ -22,9 +22,9 @@ jobs:
       - name: Build and push API Service
         uses: docker/build-push-action@v4
         with:
-          tags: vladyslavlintur/snaptalk-api:latest
+          tags: vladyslavlintur/converso-api:latest
           context: ./src
-          file: ./src/SnapTalk.WebAPI/Dockerfile
+          file: ./src/Converso.WebAPI/Dockerfile
           push: true
           
   build_frontend:
@@ -42,7 +42,19 @@ jobs:
       - name: Build frontend
         uses: docker/build-push-action@v4
         with:
-          tags: vladyslavlintur/snaptalk-frontend:latest
-          context: ./src/SnapTalk.Client
-          file: ./src/SnapTalk.Client/Dockerfile
+          tags: vladyslavlintur/converso-frontend:latest
+          context: ./src/Converso.Client
+          file: ./src/Converso.Client/Dockerfile
           push: true
+  deploy_images:
+    runs-on: ubuntu-latest
+    needs: [ build_frontend, build_api_service ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update PROD images
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.HOST_USERNAME }}
+          password: ${{ secrets.HOST_PASSWORD }}
+          script: cd ~/converso && sudo docker-compose -f docker-compose.prod.yml stop && sudo docker-compose -f docker-compose.prod.yml pull && sudo docker system prune -f && sudo docker-compose -f docker-compose.prod.yml up -d
