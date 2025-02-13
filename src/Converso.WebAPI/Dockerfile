@@ -17,7 +17,7 @@ FROM build AS publish
 RUN dotnet publish "Converso.WebAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
-RUN RUN apt-get update && apt-get install -y libfontconfig
+RUN apt-get update && apt-get install -y libfontconfig
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Converso.WebAPI.dll"]
