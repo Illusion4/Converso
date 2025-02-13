@@ -59,7 +59,7 @@ jobs:
           username: ${{ secrets.HOST_USERNAME }}
           password: ${{ secrets.HOST_PASSWORD }}
           script: |
-            cd /var/www/app
+            cd ~/var/www/app
             
             # Stop running containers
             sudo docker compose -f docker-compose.prod.yml stop
