@@ -54,7 +54,7 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
-    public static IServiceCollection AddCoreServices(this IServiceCollection services)
+    public static IServiceCollection AddCoreServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<IJwtGeneratorService, JwtGeneratorService>();
         services.AddScoped<ICurrentContextProvider, CurrentContextProvider>();
@@ -65,6 +65,13 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IEmailService, EmailService>();
         services.AddSingleton<IOtpService, OtpService>();
+
+
+        var email = configuration["Email:Email"]!;
+        var password = configuration["Email:Password"]!;
+        var smtpHost = configuration["Email:SmtpHost"]!;
+        var smtpPort = configuration.GetValue<int>("Email:SmtpPort");
+        services.AddSingleton(new EmailConfig(email, password, smtpHost, smtpPort));
         
         return services;
     }

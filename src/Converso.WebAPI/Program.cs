@@ -30,14 +30,11 @@ builder.Services.AddDbContext<SnapTalkContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
-builder.Services.AddSingleton(new EmailConfig("gaston.gleason75@ethereal.email", "7zEqZk92Rf8BV4k4HA",
-    "smtp.ethereal.email", 587));
 builder.Services.AddAzureBlobServices(builder.Configuration);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication(builder.Configuration);
-builder.Services.AddCoreServices();
+builder.Services.AddCoreServices(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.ConfigureCustomValidationResponse();
 builder.Services.AddFluentValidationAutoValidation()

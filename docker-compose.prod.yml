@@ -12,8 +12,10 @@ services:
       - sql_server
       - azurite
     environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_ENVIRONMENT: "Production"
       ConnectionStrings__DefaultConnection: "Server=sql_server;Database=Converso;User=sa;Password=Password123!;TrustServerCertificate=True"
+    env_file:
+      - /etc/environment
     networks:
       - back
   
@@ -58,3 +60,4 @@ networks:
     driver: bridge
   front:
     driver: bridge
+  
