@@ -55,8 +55,8 @@ jobs:
       - name: Copy Files to Server
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.DO_HOST }}
-          username: ${{ secrets.DO_USER }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.HOST_USERNAME }}
           password: ${{ secrets.HOST_PASSWORD }}
           source: "docker-compose.prod.yml"
           target: "~/var/www/app/"
