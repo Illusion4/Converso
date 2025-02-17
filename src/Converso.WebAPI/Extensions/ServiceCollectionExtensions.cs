@@ -1,5 +1,6 @@
 using System.Text;
 using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -107,10 +108,10 @@ public static class ServiceCollectionExtensions
         var settings = new BlobStorageSettings(blobUrl!, blobContainerName!, blobAccessUrl!);
         var blobContainerClient = new BlobContainerClient(settings.BlobConnectionString, settings.BlobContainerName);
 
+        blobContainerClient.CreateIfNotExists(PublicAccessType.Blob);
+        
         services.AddSingleton(_ => settings);
-
         services.AddSingleton(_ => blobContainerClient);
-
         services.AddScoped<IBlobService, BlobService>();
 
         return services;
