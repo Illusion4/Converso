@@ -104,6 +104,8 @@ public static class ServiceCollectionExtensions
         var blobUrl = configuration["BlobConnectionString"];
         var blobContainerName = configuration["BlobContainerName"];
         var blobAccessUrl= configuration["BlobAccessUrl"];
+        
+        Console.WriteLine(blobAccessUrl);
 
         var settings = new BlobStorageSettings(blobUrl!, blobContainerName!, blobAccessUrl!);
         var blobContainerClient = new BlobContainerClient(settings.BlobConnectionString, settings.BlobContainerName);

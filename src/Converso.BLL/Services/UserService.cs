@@ -50,7 +50,7 @@ public class UserService : IUserService
         currentUser.ProfilePictureFileName = uniqueFileName;
         await _context.SaveChangesAsync();
         
-        return new UpdateUserAvatarResponse(_blobService.GetBlobUrl(uniqueFileName));
+        return new UpdateUserAvatarResponse($"{_blobStorageSettings.BlobAccessUrl}/{uniqueFileName}");
     }
 
     public async Task<Response<bool>> CheckIsExistingEmailAsync(string email)
