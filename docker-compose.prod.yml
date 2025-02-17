@@ -12,6 +12,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: "Production"
       ConnectionStrings__DefaultConnection: "Server=sql_server;Database=Converso;User=sa;Password=Password123!;TrustServerCertificate=True"
+      BlobAccessUrl: "http://conversomessanger.me/media"
     env_file:
       - /etc/environment
     networks:
