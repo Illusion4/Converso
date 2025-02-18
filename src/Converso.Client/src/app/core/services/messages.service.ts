@@ -15,7 +15,7 @@ export class MessagesService {
   private http = inject(HttpClient);
   private chatsService = inject(ChatsService);
   private hubConnection: HubConnection = new HubConnectionBuilder()
-  .withUrl('http://localhost:5000/chatHub')
+  .withUrl(environment.chatHubUrl)
   .configureLogging(LogLevel.Information)
   .build();
 
