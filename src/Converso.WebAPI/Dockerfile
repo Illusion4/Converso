@@ -17,7 +17,11 @@ FROM build AS publish
 RUN dotnet publish "Converso.WebAPI.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
-RUN apt-get update && apt-get install -y fontconfig ttf-mscorefonts-installer
+
+RUN sed -i 's/^Components: main$/& contrib/' /etc/apt/sources.list.d/debian.sources && \
+  apt-get update && \
+  apt-get install -y ttf-mscorefonts-installer fontconfig && \
+  fc-cache -f -v
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Converso.WebAPI.dll"]
