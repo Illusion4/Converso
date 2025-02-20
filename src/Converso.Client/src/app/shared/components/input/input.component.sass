@@ -2,6 +2,7 @@
 
 input
     border: none
+    width: 100%
     border-radius: 8px
     background-color: #0f1620
     border: 1px solid rgba(255, 255, 255, 0.1)
@@ -10,9 +11,12 @@ input
     font-size: 0.875rem
     padding: 1rem
     &:focus
-        outline: 1px solid $input-focus-border-color
-        caret-color: $input-focus-border-color
+        outline: none
+        border-color: #1da1f2
         caret: 3px
+        caret-color: $input-focus-border-color
+        box-shadow: 0 0 0 2px rgba(29, 161, 242, 0.1)
+          
     &::placeholder
         color: $secondary-text-color
     &.invalid 

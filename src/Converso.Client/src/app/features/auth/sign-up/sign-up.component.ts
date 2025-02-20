@@ -5,7 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../../core/services/auth.service';
 import { RegisterRequest } from '../../../shared/models/registerRequest';
 import { routes } from '../../../app.routes';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { patternWithMessage } from '../../../shared/validators/patternWithMessage';
 import { KeyValuePipe } from '@angular/common';
 import { emailExistsValidator } from '../../../shared/validators/emailExistsValidator';
@@ -14,7 +14,7 @@ import { UserService } from '../../../core/services/user.service';
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [InputComponent, OtpVerificationComponent, ReactiveFormsModule],
+  imports: [InputComponent, OtpVerificationComponent, ReactiveFormsModule, RouterModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.sass',
   changeDetection: ChangeDetectionStrategy.OnPush

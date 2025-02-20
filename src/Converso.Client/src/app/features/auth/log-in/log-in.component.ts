@@ -4,12 +4,12 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../../core/services/auth.service';
 import { LoginRequest } from '../../../shared/models/loginRequest';
 import { tap } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
   standalone: true,
-  imports: [InputComponent, ReactiveFormsModule],
+  imports: [InputComponent, ReactiveFormsModule, RouterModule],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.sass',
   changeDetection: ChangeDetectionStrategy.OnPush

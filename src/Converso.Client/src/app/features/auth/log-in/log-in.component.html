@@ -1,6 +1,7 @@
 <div class="page-wrapper d-flex justify-content-center align-items-center vh-100">
-    <div class="container text-center p-5 w-auto">
-        <h1 class="font-weight-bold mb-4 auth-header">Login</h1>
+    <div class="form-container text-center">
+        <h1 class="auth-header">Login</h1>
+        <p class="mb-5 subtitle">Welcome back! Please enter your credentials to continue.</p>
 
         <form class="d-flex flex-column align-items-center gap-4" [formGroup]="loginFormGroup" (ngSubmit)="login()">
             <div class="form-group">
@@ -16,9 +17,9 @@
                 </div>
             </div>
             
-            <button type="submit" class="btn btn-lg">Continue</button>
+            <button type="submit">Continue</button>
 
-            <span> Forgot password? Restore. </span>
+            <span routerLink="/auth/sign-up"> New to Converso? Sign up. </span>
         </form>
     </div>
 </div>
