@@ -36,6 +36,7 @@ export const refreshTokenInterceptor: HttpInterceptorFn = (req, next) => {
         );
       }),
       catchError((_: HttpErrorResponse) => {
+        authService.logout();
         return router.navigateByUrl('auth/log-in');
       })
     );
