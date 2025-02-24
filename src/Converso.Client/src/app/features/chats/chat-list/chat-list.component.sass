@@ -97,8 +97,9 @@ li
         border-radius: 10px
         &:hover
             background-color: $list-item-hover-background-color
-        &.active
-            background-color: rgba(29, 161, 242, 0.1)
+        @media (min-width: 925px) 
+            &.active
+                background-color: rgba(29, 161, 242, 0.1)
       
 
 .chat-info
